@@ -1,30 +1,59 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id="app">
+    <MapContainer />
+    <!-- <div class="cell cell-map">
+      Map
+    </div>
+    <div class="cell cell-edit">
+      Edit
+    </div>
+    <div class="cell cell-inspect">
+      Inspect
+    </div> -->
+  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script setup >
+  import MapContainer from '@/components/MapContainer';
 
-nav {
-  padding: 30px;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+</script>
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
   }
-}
+
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100vh;
+    grid-auto-rows: 1fr;
+    grid-gap: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  .cell {
+    border-radius: 4px;
+    background-color: lightgrey;
+  }
+
+  .cell-map {
+    grid-column: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+
+  .cell-edit {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .cell-inspect {
+    grid-column: 2;
+    grid-row: 2;
+  }
 </style>
